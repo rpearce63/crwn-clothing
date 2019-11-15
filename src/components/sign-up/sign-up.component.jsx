@@ -3,11 +3,7 @@ import React from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
-import {
-  auth,
-  createuserProfileDocument,
-  createUserProfileDocument
-} from "../../firebase/firebase.util";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.util";
 
 import "./sign-up.styles.scss";
 
@@ -41,12 +37,12 @@ class SignUp extends React.Component {
 
       await createUserProfileDocument(user, { displayName });
 
-      this.state = {
+      this.setState({
         displayName: "",
         email: "",
         password: "",
         confirmPassword: ""
-      };
+      });
     } catch (error) {
       console.log(error);
     }
